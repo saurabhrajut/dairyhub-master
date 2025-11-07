@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "103418941595",
+    "project_id": "dhenuguide",
+    "storage_bucket": "dhenuguide.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103418941595:android:a1f6dd3de979f44827763e",
+        "android_client_info": {
+          "package_name": "com.example.dairyhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103418941595-j30eokkqdmmj2i74f9c52752r0p495rd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAthfWIq2RSTYGVS2rcmO4e6b-0IQJ4qNc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103418941595-j30eokkqdmmj2i74f9c52752r0p495rd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

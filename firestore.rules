@@ -1,0 +1,18 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Allow logged-in users to create their own user document
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null && request.auth.uid == userId;
+
+      // Allow a user to manage their own subscription
+      match /subscription/{subId} {
+      	allow read, create, update, delete: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+  }
+}

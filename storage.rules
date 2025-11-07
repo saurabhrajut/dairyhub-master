@@ -1,0 +1,17 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // केवल प्रमाणित यूज़र्स को अपने खुद के फोल्डर में प्रोफाइल तस्वीरें अपलोड करने की अनुमति दें।
+    // path का {userId} वाइल्डकार्ड यूज़र की uid से मेल खाना चाहिए।
+    match /profileImages/{userId}/{fileName} {
+      // यूज़र को लॉग-इन होना चाहिए और उसकी UID पाथ की userId से मेल खानी चाहिए।
+      // हम फ़ाइल का आकार (5MB से कम) और प्रकार (छवि) भी जांच रहे हैं।
+      allow write: if request.auth != null && request.auth.uid == userId
+                    && request.resource.size < 5 * 1024 * 1024
+                    && request.resource.contentType.matches('image/.*');
+
+      // केवल प्रमाणित यूज़र को अपनी तस्वीरें पढ़ने की अनुमति दें
+      allow read: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}

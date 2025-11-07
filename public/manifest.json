@@ -1,0 +1,20 @@
+{
+  "name": "DairyHub",
+  "short_name": "DairyHub",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/EF9A49FE-8131-4DD5-9311-7FC058B1FD0E.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/EF9A49FE-8131-4DD5-9311-7FC058B1FD0E.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

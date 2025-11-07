@@ -1,0 +1,32 @@
+"use client";
+
+import { useAuth } from '@/context/auth-context';
+import { useRouter } from 'next/navigation';
+import { useEffect, ReactNode } from 'react';
+import { Loader2 } from 'lucide-react';
+
+// Yeh component logged-in users ko login/signup page dekhne se rokega
+export default function PublicRoute({ children }: { children: ReactNode }) {
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    // Jab loading poori ho jaaye aur user logged IN ho, to usse profile par bhej do
+    if (!loading && user) {
+      router.push('/profile');
+    }
+  }, [user, loading, router]);
+
+  // Jab tak Firebase check kar raha hai, ya user hai (redirect hone wala hai)
+  if (loading || user) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <Loader2 className="h-12 w-12 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  // Agar user logged in NAHI hai, to login/signup page (children) dikhao
+  return <>{children}</>;
+}
+
